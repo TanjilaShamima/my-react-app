@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Clock from './components/Clock'
 
 function App() {
   const [value, setValue] = useState<string>();
@@ -6,10 +7,10 @@ function App() {
   useEffect(() => {
     let array = []
     let inc = 0
-    while(inc<10){
+    while(inc<10000){
       array.push(++inc)
     }
-    const data = array.join('-')
+    const data = array.join('---')
     console.log(data)
     setValue(data)
   }, []);
@@ -17,10 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* {value.map((num, index) => (
-        <li key={index}>{num}</li>
-      ))} */}
-      {value}
+      <Clock locale="bn-bd" />
     </div>
   );
 }
